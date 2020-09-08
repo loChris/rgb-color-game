@@ -27,6 +27,7 @@ h3 {
 button {
 	border: none;
 	border-radius: 25px;
+	outline: none;
 	background: pink;
 	font-size: inherit;
 	font-weight: 700;
