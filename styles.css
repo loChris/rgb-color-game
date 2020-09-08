@@ -28,3 +28,7 @@ body {
 	margin: 1.66%;
 	float: left;
 }
+
+.selected {
+	background-color: blue;
+}
