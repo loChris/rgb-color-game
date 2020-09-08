@@ -1,11 +1,14 @@
-const h1 = document.querySelector('h1');
+const h1 = document.querySelector('#header');
 const colorDisplay = document.querySelector('#colorDisplay');
 const colorGuess = document.querySelector('#colorGuessMessage');
+const resetButton = document.querySelector('#resetButton');
 const squares = document.querySelectorAll('.square');
-const colors = randomColorArrayGenerator(6);
-const pickedColor = randomColorPicker();
+let colors = randomColorArrayGenerator(6);
+let pickedColor = randomColorPicker();
 
 colorDisplay.innerHTML = pickedColor;
+
+resetButton.addEventListener('click', resetButtonClick);
 
 for (let i = 0; i < squares.length; i++) {
 	squares[i].style.backgroundColor = colors[i];
@@ -17,6 +20,7 @@ function squareClick() {
 
 	if (clickedColor === pickedColor) {
 		colorGuess.innerHTML = 'Correct!';
+		resetButton.innerHTML = 'Play Again?';
 		changeSquareColorsOnCorrect(clickedColor);
 		h1.style.backgroundColor = clickedColor;
 	} else {
@@ -40,6 +44,7 @@ function randomColorArrayGenerator(num) {
 	return arr;
 }
 
+// refactor
 function randomColorGenerator() {
 	const r = Math.floor(Math.random() * 256);
 	const g = Math.floor(Math.random() * 256);
@@ -50,4 +55,17 @@ function randomColorGenerator() {
 function randomColorPicker() {
 	const randomNumber = Math.floor(Math.random() * colors.length);
 	return colors[randomNumber];
+}
+
+// refactor
+function resetButtonClick() {
+	resetButton.innerHTML = 'New Colors';
+	h1.style.backgroundColor = '#232323';
+	colors = randomColorArrayGenerator(6);
+	pickedColor = randomColorPicker();
+	colorDisplay.innerHTML = pickedColor;
+
+	for (let i = 0; i < squares.length; i++) {
+		squares[i].style.backgroundColor = colors[i];
+	}
 }

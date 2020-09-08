@@ -2,12 +2,22 @@ body {
 	background-color: #232323;
 }
 
-#header {
+#header h1,
+#header h2 {
+	text-align: center;
+	margin: 20px auto;
 	color: white;
 }
 
+#stripe {
+	background-color: white;
+	height: 30px;
+	text-align: center;
+	padding: 13px 0 5px;
+}
+
 #container {
-	margin: 0 auto;
+	margin: 100px auto;
 	max-width: 600px;
 }
 
